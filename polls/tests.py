@@ -66,7 +66,7 @@ class QuestionIndexViewTests(TestCase):
             ['<Question: Past question 2.>', '<Question: Past question 1.>']
         )
 
-class QuestionDetailViewTests(TestCase):
+class TestQuestionDetailView(TestCase):
     def test_future_question(self):
         future_question = create_question(question_text='Future question.', days=5)
         url = reverse('polls:detail', args=(future_question.id,))
