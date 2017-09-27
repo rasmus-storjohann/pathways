@@ -1,3 +1,15 @@
+# An application may use common Django conventions, such as having models, tests,
+# urls, and views submodules. Test files by default are test*.py, so test files 
+# can be placed next to the files they test.
+
+# polls
+# polls/urls.py
+# polls/views/detail_view.py contains DetailView
+# polls/models/question.py contains Question
+# polls/tests/urls/test_foo.py
+# polls/tests/views/test_question_detail_view.py contains TestQuestionDetailView
+# polls/tests/models/test_question.py
+
 from django.conf.urls import url
 
 from . import views
