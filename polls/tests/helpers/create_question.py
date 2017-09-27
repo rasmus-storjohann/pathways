@@ -1,7 +1,7 @@
 import datetime
 from django.utils import timezone
-from ...model import Question
+from ... import model
 
 def create_question(question_text, days):
     time = timezone.now() + datetime.timedelta(days=days)
-    return Question.objects.create(question_text=question_text, pub_date=time)
+    return model.Question.objects.create(question_text=question_text, pub_date=time)

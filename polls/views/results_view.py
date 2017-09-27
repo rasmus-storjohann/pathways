@@ -1,6 +1,6 @@
 from django.views import generic
-from ..model import Question
+from .. import model
 
 class ResultsView(generic.DetailView):
-    model = Question
+    model = model.Question
     template_name = 'polls/results.html'
