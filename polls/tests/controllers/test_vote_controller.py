@@ -1,5 +1,6 @@
 from django.test import TestCase
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
+from unittest.mock import MagicMock
 from django.http import Http404
 from ... import controllers
 
@@ -31,6 +32,7 @@ class TestVoteController(TestCase):
         self.controller.vote(self.question_id, self.choice_id)
         self.mock_repository.save_choice.assert_called_with(self.choice)
 
+    # TODO want to use our own class for errors probably
     def throw_no_such_entity(self, question_id, choice_id):
         raise Http404()
 
@@ -38,7 +40,6 @@ class TestVoteController(TestCase):
         self.mock_repository.get_choice_by_question_id_and_choice_id = MagicMock(side_effect = self.throw_no_such_entity)
         with self.assertRaises(Http404):
             self.controller.vote(self.question_id, self.choice_id)
-
 
     # TODO returns redirect somehow
      
