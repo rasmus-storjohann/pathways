@@ -2,8 +2,8 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
-from ..models import Question
-from .test_helpers import create_question
+from ...models import Question
+from ..helpers import create_question
 
 class TestQuestionIndexView(TestCase):
     def test_no_questions(self):
