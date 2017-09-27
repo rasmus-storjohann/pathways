@@ -28,3 +28,11 @@ class TestChoiceRepository(TestCase):
         invalid_choice_id = 434
         with self.assertRaises(models.Choice.DoesNotExist):
             self.repository.get_choice_by_question_id_and_choice_id(self.question.id, invalid_choice_id)
+
+    def test_save_choice_updates_value_in_database(self):
+        self.choice.votes = 342
+
+        self.repository.save_choice(self.choice)
+
+        choice_from_database = self.question.choice_set.get(pk = self.choice.id)
+        self.assertEqual(choice_from_database.votes, 342)
