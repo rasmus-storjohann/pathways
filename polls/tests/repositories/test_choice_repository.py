@@ -21,7 +21,7 @@ class TestChoiceRepository(TestCase):
 
     def test_get_choice_throws_on_no_matching_question(self):
         invalid_question_id = 234
-        with self.assertRaises(Http404):
+        with self.assertRaises(models.Question.DoesNotExist):
             self.repository.get_choice_by_question_id_and_choice_id(invalid_question_id, self.choice.id)
 
     def test_get_choice_throws_on_no_matching_choice(self):
